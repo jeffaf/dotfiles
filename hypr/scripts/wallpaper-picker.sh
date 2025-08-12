@@ -55,8 +55,9 @@ EOF
     # Copy config to active location
     cp /home/jeffaf/dotfiles/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
     
-    # Start hyprpaper with new config
-    hyprpaper -c ~/.config/hypr/hyprpaper.conf &
+    # Start hyprpaper with new config (redirect output and run in background)
+    hyprpaper -c ~/.config/hypr/hyprpaper.conf > /dev/null 2>&1 &
+    disown
     
     # Save current wallpaper
     echo "$wallpaper" > "$CURRENT_WALLPAPER_FILE"
@@ -64,14 +65,14 @@ EOF
     # Update waybar colors
     update_waybar_colors
     
-    # Reload waybar
+    # Reload waybar quietly
     killall waybar 2>/dev/null
-    waybar &
+    sleep 0.5
+    waybar > /dev/null 2>&1 &
+    disown
     
-    # Send notification
-    if command -v notify-send &> /dev/null; then
-        notify-send "Wallpaper Changed" "$(basename "$wallpaper")" -i "$wallpaper"
-    fi
+    # Send notification via mako (Hyprland's notification daemon)
+    notify-send "Wallpaper" "$(basename "$wallpaper")" 2>/dev/null || true
 }
 
 # Function to update waybar colors from pywal
