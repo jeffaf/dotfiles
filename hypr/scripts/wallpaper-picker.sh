@@ -35,10 +35,15 @@ set_wallpaper() {
     # Generate colors with pywal
     wal -i "$wallpaper" -n -q
     
-    # Set wallpaper with hyprpaper
+    # Set wallpaper with hyprpaper (Wayland method)
     if pgrep -x "hyprpaper" > /dev/null; then
-        # Update hyprpaper config
-        cat > ~/.config/hypr/hyprpaper.conf << EOF
+        # Kill existing hyprpaper
+        killall hyprpaper 2>/dev/null
+        sleep 0.5
+    fi
+    
+    # Update hyprpaper config
+    cat > /home/jeffaf/dotfiles/hypr/hyprpaper.conf << EOF
 splash = false
 ipc = on
 
@@ -46,8 +51,12 @@ preload = $wallpaper
 wallpaper = HDMI-A-1,$wallpaper
 wallpaper = eDP-1,$wallpaper
 EOF
-        hyprctl hyprpaper reload
-    fi
+    
+    # Copy config to active location
+    cp /home/jeffaf/dotfiles/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+    
+    # Start hyprpaper with new config
+    hyprpaper -c ~/.config/hypr/hyprpaper.conf &
     
     # Save current wallpaper
     echo "$wallpaper" > "$CURRENT_WALLPAPER_FILE"
