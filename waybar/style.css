@@ -1,0 +1,314 @@
+/* Cyberpunk Waybar Theme */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+* {
+    font-family: 'Iosevka Nerd Font', 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/* Main bar styling */
+window#waybar {
+    background: linear-gradient(135deg, rgba(26, 27, 38, 0.95), rgba(40, 42, 54, 0.95));
+    color: #f8f8f2;
+    border-radius: 12px;
+    border: 1px solid rgba(187, 154, 247, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* Logo */
+#custom-logo {
+    background: linear-gradient(45deg, #bb9af7, #7aa2f7);
+    color: #1a1b26;
+    margin: 4px;
+    margin-left: 8px;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(187, 154, 247, 0.3);
+    transition: all 0.3s ease;
+}
+
+#custom-logo:hover {
+    background: linear-gradient(45deg, #c4a5f8, #8bb5f8);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(187, 154, 247, 0.5);
+}
+
+/* Workspaces */
+#workspaces {
+    background: rgba(68, 71, 90, 0.6);
+    margin: 4px;
+    padding: 0 4px;
+    border-radius: 10px;
+    border: 1px solid rgba(187, 154, 247, 0.2);
+}
+
+#workspaces button {
+    padding: 0 8px;
+    margin: 2px;
+    border-radius: 6px;
+    color: #a9b1d6;
+    background: transparent;
+    transition: all 0.2s ease;
+    min-width: 24px;
+}
+
+#workspaces button:hover {
+    background: rgba(187, 154, 247, 0.2);
+    color: #bb9af7;
+    transform: scale(1.1);
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, #bb9af7, #7aa2f7);
+    color: #1a1b26;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(187, 154, 247, 0.4);
+}
+
+#workspaces button.urgent {
+    background: linear-gradient(45deg, #f7768e, #ff9e64);
+    color: #1a1b26;
+    animation: urgent-blink 1s ease infinite alternate;
+}
+
+@keyframes urgent-blink {
+    from { opacity: 1; }
+    to { opacity: 0.6; }
+}
+
+/* Submap indicator */
+#submap {
+    background: linear-gradient(45deg, #e0af68, #f7768e);
+    color: #1a1b26;
+    margin: 4px;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    animation: submap-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes submap-glow {
+    from { box-shadow: 0 2px 8px rgba(224, 175, 104, 0.3); }
+    to { box-shadow: 0 4px 16px rgba(224, 175, 104, 0.6); }
+}
+
+/* Window title */
+#window {
+    background: rgba(68, 71, 90, 0.4);
+    margin: 4px;
+    padding: 0 16px;
+    border-radius: 8px;
+    color: #c0caf5;
+    font-weight: 500;
+    border: 1px solid rgba(192, 202, 245, 0.1);
+}
+
+#window.empty {
+    background: transparent;
+    border: none;
+}
+
+/* Right modules container */
+.modules-right > widget:first-child > #custom-wallpaper {
+    margin-left: 4px;
+}
+
+/* Module styling */
+#tray, #idle_inhibitor, #disk, #cpu, #memory, #temperature, #custom-gpu, 
+#network, #pulseaudio, #battery, #custom-power, #clock, #custom-wallpaper {
+    background: rgba(68, 71, 90, 0.6);
+    margin: 4px 2px;
+    padding: 0 12px;
+    border-radius: 8px;
+    color: #a9b1d6;
+    border: 1px solid rgba(169, 177, 214, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+#tray:hover, #idle_inhibitor:hover, #disk:hover, #cpu:hover, #memory:hover, 
+#temperature:hover, #custom-gpu:hover, #network:hover, #pulseaudio:hover, 
+#battery:hover, #custom-power:hover, #clock:hover, #custom-wallpaper:hover {
+    background: rgba(187, 154, 247, 0.2);
+    color: #bb9af7;
+    border-color: rgba(187, 154, 247, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(187, 154, 247, 0.2);
+}
+
+/* CPU styling */
+#cpu {
+    color: #7aa2f7;
+}
+
+#cpu.warning {
+    color: #e0af68;
+    background: rgba(224, 175, 104, 0.1);
+}
+
+#cpu.critical {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.1);
+    animation: critical-pulse 1s ease infinite;
+}
+
+/* Memory styling */
+#memory {
+    color: #bb9af7;
+}
+
+#memory.warning {
+    color: #e0af68;
+    background: rgba(224, 175, 104, 0.1);
+}
+
+#memory.critical {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.1);
+    animation: critical-pulse 1s ease infinite;
+}
+
+/* Temperature styling */
+#temperature {
+    color: #9ece6a;
+}
+
+#temperature.critical {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.1);
+    animation: critical-pulse 1s ease infinite;
+}
+
+/* GPU styling */
+#custom-gpu {
+    color: #7dcfff;
+}
+
+/* Network styling */
+#network {
+    color: #7dcfff;
+}
+
+#network.disconnected {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.1);
+}
+
+/* Audio styling */
+#pulseaudio {
+    color: #bb9af7;
+}
+
+#pulseaudio.muted {
+    color: #565f89;
+    background: rgba(86, 95, 137, 0.1);
+}
+
+/* Battery styling */
+#battery {
+    color: #9ece6a;
+}
+
+#battery.charging {
+    color: #7dcfff;
+    background: rgba(125, 207, 255, 0.1);
+}
+
+#battery.warning:not(.charging) {
+    color: #e0af68;
+    background: rgba(224, 175, 104, 0.1);
+}
+
+#battery.critical:not(.charging) {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.1);
+    animation: critical-pulse 1s ease infinite;
+}
+
+/* Clock styling */
+#clock {
+    color: #c0caf5;
+    font-weight: 600;
+    background: rgba(68, 71, 90, 0.8);
+    border: 1px solid rgba(192, 202, 245, 0.2);
+}
+
+/* Power button */
+#custom-power {
+    color: #f7768e;
+    margin-right: 8px;
+}
+
+#custom-power:hover {
+    background: rgba(247, 118, 142, 0.2);
+    color: #ff7a93;
+}
+
+/* Wallpaper button */
+#custom-wallpaper {
+    color: #e0af68;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
+    color: #e0af68;
+    background: rgba(224, 175, 104, 0.1);
+}
+
+/* Disk usage */
+#disk {
+    color: #7dcfff;
+}
+
+#disk.warning {
+    color: #e0af68;
+    background: rgba(224, 175, 104, 0.1);
+}
+
+#disk.critical {
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.1);
+}
+
+/* Tray */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(247, 118, 142, 0.2);
+}
+
+/* Critical pulse animation */
+@keyframes critical-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Tooltip styling */
+tooltip {
+    background: rgba(26, 27, 38, 0.95);
+    border: 1px solid rgba(187, 154, 247, 0.3);
+    border-radius: 8px;
+    color: #c0caf5;
+    font-family: 'Iosevka Nerd Font', monospace;
+}
+
+tooltip label {
+    color: #c0caf5;
+    padding: 4px;
+}
