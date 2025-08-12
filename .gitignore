@@ -1,0 +1,16 @@
+# Ignore sensitive files
+hypr/hyprland.conf.new
+**/cache/
+**/logs/
+**/*.log
+**/.DS_Store
+**/Thumbs.db
+
+# Ignore large files
+wallpapers/*.mov
+wallpapers/*.mp4
+
+# Ignore temporary files
+**/*~
+**/*.swp
+**/*.tmp
