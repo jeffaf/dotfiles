@@ -82,16 +82,16 @@
       (label :class "ascii-mascot" 
              :text "［(◕‿◕)］ すべて順調です"))))
 
-;; Main window with cyberpunk positioning
+;; Main window positioned at bottom-left
 (defwindow anime-system-monitor
   :monitor 0
-  :geometry (geometry :x "30px" 
-                      :y "80px" 
+  :geometry (geometry :x "20px" 
+                      :y "20px" 
                       :width "320px" 
                       :height "420px"
-                      :anchor "top left")
+                      :anchor "bottom left")
   :stacking "overlay"
-  :reserve (struts :distance "0px" :side "top")
+  :reserve (struts :distance "0px" :side "bottom")
   :windowtype "dock"
   :wm-ignore false
   (anime-system-monitor))
