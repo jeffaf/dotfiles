@@ -1,0 +1,97 @@
+;; ═══════════════════════════════════════════════════════════════
+;; 　　　　　　　システムモニター - SYSTEM MONITOR　　　　　　　
+;; ═══════════════════════════════════════════════════════════════
+
+;; System monitoring variables with better polling
+(defpoll cpu-usage :interval "2s" "grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$3+$4+$5)} END {printf \"%.0f\", usage}' || echo '15'")
+(defpoll memory-usage :interval "2s" "free | grep Mem | awk '{printf \"%.0f\", $3/$2 * 100.0}' || echo '24'")
+(defpoll cpu-temp :interval "3s" "sensors 2>/dev/null | grep 'Core 0' | awk '{print $3}' | tr -d '+°C' | head -1 || echo '55'")
+(defpoll current-time :interval "1s" "date '+%H:%M:%S'")
+(defpoll current-date :interval "30s" "date '+%a %b %d'")
+(defpoll uptime-info :interval "30s" "uptime -p | sed 's/up //' || echo 'unknown'")
+
+;; Network and disk info
+(defpoll network-status :interval "5s" "ping -c 1 8.8.8.8 >/dev/null 2>&1 && echo 'ONLINE' || echo 'OFFLINE'")
+(defpoll disk-usage :interval "10s" "df -h / | awk 'NR==2{print $5}' | tr -d '%' || echo '42'")
+
+;; Cyberpunk System Monitor Widget
+(defwidget anime-system-monitor []
+  (box :class "main-container" 
+       :orientation "v" 
+       :space-evenly false
+       :spacing 8
+    
+    ;; ═══ HEADER ═══
+    (box :class "header-section" :orientation "v"
+      (label :class "anime-title" 
+             :text "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+      (label :class "anime-title" 
+             :text "　　　　　　　　　システムモニター v2.0")
+      (label :class "anime-title" 
+             :text "　　　　　　　　　　SYSTEM MONITOR")
+      (label :class "anime-title" 
+             :text "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+      (label :class "system-status" 
+             :text "［状態：${network-status}］"))
+    
+    ;; ═══ TIME & DATE PANEL ═══
+    (box :class "time-panel" :orientation "v"
+      (label :class "digital-clock" 
+             :text "⧖ ${current-time}")
+      (label :class "date-info" 
+             :text "📅 ${current-date} • ${uptime-info}"))
+    
+    ;; ═══ SYSTEM VITALS ═══
+    (box :class "vitals-section" :orientation "v" :spacing 6
+      (label :class "section-title" 
+             :text "▣ SYSTEM VITALS")
+      
+      ;; CPU Monitoring
+      (box :class "metric-row" :orientation "h"
+        (label :class "metric-label" :text "CPU:")
+        (box :class "progress-container" :orientation "h"
+          (progress :class "cpu-progress" 
+                    :value cpu-usage)
+          (label :class "metric-value" :text "${cpu-usage}%")))
+      
+      ;; Memory Monitoring  
+      (box :class "metric-row" :orientation "h"
+        (label :class "metric-label" :text "RAM:")
+        (box :class "progress-container" :orientation "h"
+          (progress :class "mem-progress" 
+                    :value memory-usage)
+          (label :class "metric-value" :text "${memory-usage}%")))
+      
+      ;; Temperature
+      (box :class "metric-row" :orientation "h"
+        (label :class "metric-label" :text "TEMP:")
+        (label :class "temp-display" :text "${cpu-temp}°C"))
+      
+      ;; Disk Usage
+      (box :class "metric-row" :orientation "h"
+        (label :class "metric-label" :text "DISK:")
+        (box :class "progress-container" :orientation "h"
+          (progress :class "disk-progress" 
+                    :value disk-usage)
+          (label :class "metric-value" :text "${disk-usage}%"))))
+    
+    ;; ═══ STATUS FOOTER ═══
+    (box :class "footer-section" :orientation "v"
+      (label :class "status-message" 
+             :text "◆ システムは正常です - All systems operational")
+      (label :class "ascii-mascot" 
+             :text "［(◕‿◕)］ すべて順調です"))))
+
+;; Main window with cyberpunk positioning
+(defwindow anime-system-monitor
+  :monitor 0
+  :geometry (geometry :x "30px" 
+                      :y "80px" 
+                      :width "320px" 
+                      :height "420px"
+                      :anchor "top left")
+  :stacking "overlay"
+  :reserve (struts :distance "0px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (anime-system-monitor))
