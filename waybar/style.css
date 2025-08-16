@@ -38,12 +38,14 @@ window#waybar {
 #workspaces button:hover {
     background: rgba(187, 154, 247, 0.2);
     color: #bb9af7;
+    text-shadow: 0 0 5px rgba(187, 154, 247, 0.6);
 }
 
 #workspaces button.active {
     background: linear-gradient(45deg, #bb9af7, #7aa2f7);
     color: #1a1b26;
     font-weight: bold;
+    text-shadow: 0 0 4px rgba(26, 27, 38, 0.8);
 }
 
 #workspaces button.urgent {
@@ -60,6 +62,7 @@ window#waybar {
     color: #c0caf5;
     font-weight: 500;
     border: 1px solid rgba(192, 202, 245, 0.1);
+    text-shadow: 0 0 4px rgba(192, 202, 245, 0.4);
 }
 
 /* Modules */
@@ -73,17 +76,58 @@ window#waybar {
     border: 1px solid rgba(169, 177, 214, 0.1);
 }
 
-/* Module colors */
-#cpu { color: #7aa2f7; }
-#memory { color: #bb9af7; }
-#temperature { color: #9ece6a; }
-#custom-gpu { color: #7dcfff; }
-#network { color: #7dcfff; }
-#pulseaudio { color: #bb9af7; }
-#battery { color: #9ece6a; }
-#clock { color: #c0caf5; font-weight: 600; }
-#custom-power { color: #f7768e; }
-#custom-wallpaper { color: #e0af68; }
+/* Module colors with glowing effects */
+#cpu { 
+    color: #7aa2f7; 
+    text-shadow: 0 0 6px rgba(122, 162, 247, 0.8);
+    font-weight: 600;
+}
+#memory { 
+    color: #bb9af7; 
+    text-shadow: 0 0 6px rgba(187, 154, 247, 0.8);
+    font-weight: 600;
+}
+#temperature { 
+    color: #9ece6a; 
+    text-shadow: 0 0 6px rgba(158, 206, 106, 0.8);
+    font-weight: 600;
+}
+#custom-gpu { 
+    color: #7dcfff; 
+    text-shadow: 0 0 6px rgba(125, 207, 255, 0.8);
+    font-weight: 600;
+}
+#network { 
+    color: #7dcfff; 
+    text-shadow: 0 0 6px rgba(125, 207, 255, 0.8);
+    font-weight: 600;
+}
+#pulseaudio { 
+    color: #bb9af7; 
+    text-shadow: 0 0 6px rgba(187, 154, 247, 0.8);
+    font-weight: 600;
+}
+#battery { 
+    color: #9ece6a; 
+    text-shadow: 0 0 6px rgba(158, 206, 106, 0.8);
+    font-weight: 600;
+}
+#clock { 
+    color: #c0caf5; 
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(192, 202, 245, 0.8);
+    letter-spacing: 1px;
+}
+#custom-power { 
+    color: #f7768e; 
+    text-shadow: 0 0 6px rgba(247, 118, 142, 0.8);
+    font-weight: 600;
+}
+#custom-wallpaper { 
+    color: #e0af68; 
+    text-shadow: 0 0 6px rgba(224, 175, 104, 0.8);
+    font-weight: 600;
+}
 
 /* Status indicators */
 #cpu.warning, #memory.warning, #temperature.critical { 
