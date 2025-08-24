@@ -67,7 +67,7 @@ window#waybar {
 
 /* Modules */
 #tray, #idle_inhibitor, #disk, #cpu, #memory, #temperature, #custom-gpu, 
-#network, #pulseaudio, #battery, #custom-bluetooth-battery, #custom-power, #clock, #custom-wallpaper {
+#network, #custom-bluetooth-audio, #battery, #custom-power, #clock, #custom-wallpaper {
     background: rgba(68, 71, 90, 0.6);
     margin: 4px 2px;
     padding: 0 12px;
@@ -128,9 +128,9 @@ window#waybar {
     text-shadow: 0 0 6px rgba(224, 175, 104, 0.8);
     font-weight: 600;
 }
-#custom-bluetooth-battery { 
-    color: #7dcfff; 
-    text-shadow: 0 0 6px rgba(125, 207, 255, 0.8);
+#custom-bluetooth-audio { 
+    color: #bb9af7; 
+    text-shadow: 0 0 6px rgba(187, 154, 247, 0.8);
     font-weight: 600;
 }
 

@@ -4,7 +4,7 @@
     "height": 32,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["cpu", "memory", "temperature", "network", "pulseaudio", "custom/bluetooth-battery", "battery", "clock"],
+    "modules-right": ["cpu", "memory", "temperature", "network", "custom/bluetooth-audio", "battery", "clock"],
     
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -43,19 +43,11 @@
         "tooltip-format": "{ifname} via {gwaddr}"
     },
     
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "󰂯 {volume}%",
-        "format-muted": "󰖁 Muted",
-        "format-icons": {
-            "headphone": "󰋋",
-            "hands-free": "󰋎",
-            "headset": "󰋎",
-            "phone": "󰄜",
-            "portable": "󰦧",
-            "car": "󰄋",
-            "default": ["󰕿", "󰖀", "󰕾"]
-        },
+    "custom/bluetooth-audio": {
+        "exec": "~/dotfiles/scripts/bluetooth-audio-display.sh",
+        "interval": 5,
+        "return-type": "text",
+        "format": "{}",
         "on-click": "pavucontrol"
     },
     
@@ -72,13 +64,6 @@
         "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     
-    "custom/bluetooth-battery": {
-        "exec": "~/dotfiles/scripts/bluetooth-battery.sh",
-        "interval": 30,
-        "return-type": "text",
-        "format": "{}",
-        "tooltip": false
-    },
     
     "clock": {
         "format": "󰅐 {:%H:%M}",
