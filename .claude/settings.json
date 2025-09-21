@@ -1,0 +1,14 @@
+{
+  "allowedTools": ["*"],
+  "ignorePatterns": [
+    "node_modules/**",
+    ".git/**",
+    "*.log",
+    ".DS_Store",
+    "thumbs.db"
+  ],
+  "systemPrompt": "",
+  "mcpServers": {},
+  "enabledMcpjsonServers": [],
+  "disabledMcpjsonServers": []
+}

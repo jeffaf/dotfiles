@@ -12,3 +12,4 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=$PATH:$(go env GOPATH)/bin
