@@ -1,0 +1,187 @@
+# HYPRLAND HOTKEYS REFERENCE
+# CachyOS + Hyprland Gaming Setup
+# GPU: AMD Ryzen 9 7945HX + RTX 4060 + 62GB RAM
+# Monitors: 2880x1620@75Hz + 2560x1440@240Hz
+
+# Note: $mainMod = SUPER (Windows key)
+
+================================================================================
+🚀 ESSENTIAL APPLICATIONS
+================================================================================
+Super + Q           Launch terminal (kitty)
+Super + C           Kill active window
+Super + M           Exit Hyprland
+Super + E           Open file manager (thunar)
+Super + R           Application launcher (wofi)
+Super + Space       Application launcher (wofi drun mode)
+Super + Shift + Space    Command launcher (wofi run mode)
+
+================================================================================
+🎮 GAMING & STEAM
+================================================================================
+Super + G           Launch Steam
+Super + Shift + G   Launch Steam with game performance mode
+
+================================================================================
+🪟 WINDOW MANAGEMENT
+================================================================================
+Super + V           Toggle floating window
+Super + F           Fullscreen mode (normal)
+Super + Shift + F   Fullscreen mode (real fullscreen)
+Super + P           Pseudo tile (dwindle layout)
+Super + J           Toggle split direction (dwindle layout)
+
+# FOCUS MOVEMENT (WASD + Arrow Keys)
+Super + A / Left    Move focus left
+Super + D / Right   Move focus right
+Super + W / Up      Move focus up
+Super + S / Down    Move focus down
+
+# WINDOW MOVEMENT
+Super + Shift + Left     Move window left
+Super + Shift + Right    Move window right
+Super + Shift + Up       Move window up
+Super + Shift + Down     Move window down
+
+# RESIZE MODE
+Super + H           Enter resize mode
+  (In resize mode):
+  Right             Resize window right
+  Left              Resize window left
+  Up                Resize window up
+  Down              Resize window down
+  Escape            Exit resize mode
+
+================================================================================
+🏢 WORKSPACE MANAGEMENT
+================================================================================
+# SWITCH TO WORKSPACE
+Super + 1-0         Switch to workspace 1-10
+  Super + 5         Steam workspace
+  Super + 6         Security tools workspace
+  Super + 7         Network analysis workspace
+  Super + 8         VMs/containers workspace
+
+# MOVE WINDOW TO WORKSPACE
+Super + Shift + 1-0      Move window to workspace 1-10
+
+# SPECIAL WORKSPACES
+Super + `           Toggle special workspace "magic"
+Super + Shift + `   Move window to special workspace "magic"
+
+================================================================================
+🖥️ DUAL MONITOR MANAGEMENT
+================================================================================
+Super + Ctrl + Left      Focus left monitor
+Super + Ctrl + Right     Focus right monitor
+Super + Ctrl + Shift + Left   Move window to left monitor
+Super + Ctrl + Shift + Right  Move window to right monitor
+
+# MOUSE WORKSPACE SWITCHING
+Super + Mouse Wheel Up/Down   Switch workspaces with mouse
+
+================================================================================
+🔒 SYSTEM CONTROLS
+================================================================================
+Super + L           Lock screen (swaylock)
+Super + Shift + Q   Logout menu (wlogout)
+Super + Shift + Ctrl + Q    Emergency kill Hyprland
+
+# LAPTOP LID
+Lid Switch          Lock screen when lid closes
+
+================================================================================
+📸 SCREENSHOTS
+================================================================================
+Print               Screenshot selection to clipboard
+Super + Print       Full screen screenshot to clipboard
+Super + Shift + S   Screenshot selection to file (~/Pictures/Screenshots/)
+
+================================================================================
+🎵 AUDIO CONTROLS (Function Keys)
+================================================================================
+F86AudioRaiseVolume    Volume up 5%
+F86AudioLowerVolume    Volume down 5%
+F86AudioMute          Toggle mute
+F86AudioPlay          Play/pause media
+F86AudioPause         Play/pause media
+F86AudioNext          Next track
+F86AudioPrev          Previous track
+
+================================================================================
+💡 BRIGHTNESS CONTROLS (Laptop)
+================================================================================
+F86MonBrightnessUp    Brightness up 10%
+F86MonBrightnessDown  Brightness down 10%
+
+================================================================================
+📋 CLIPBOARD MANAGER
+================================================================================
+Super + Insert      Open clipboard history (cliphist + wofi)
+
+================================================================================
+🎨 THEMING & WALLPAPERS
+================================================================================
+Super + Ctrl + W    Wallpaper picker (pywal integration)
+Super + Ctrl + N    Cycle to next wallpaper
+Super + Ctrl + T    Color theme picker
+Super + Ctrl + C    Cycle color themes
+
+================================================================================
+✨ VISUAL EFFECTS
+================================================================================
+Super + Ctrl + S         Enable cyberpunk shader
+Super + Ctrl + Shift + S Disable screen shader
+
+================================================================================
+⚡ POWER PROFILES
+================================================================================
+Super + Alt + P     Set performance mode
+Super + Alt + B     Set balanced mode
+Super + Alt + S     Set power-saver mode
+
+================================================================================
+📊 SYSTEM MONITORING
+================================================================================
+Super + S           Toggle anime system monitor widget
+
+================================================================================
+🖱️ MOUSE CONTROLS
+================================================================================
+Super + Left Click       Move window with mouse
+Super + Right Click      Resize window with mouse
+
+================================================================================
+📁 QUICK ACCESS PATHS
+================================================================================
+Scripts Directory:   ~/dotfiles/scripts/
+Wallpapers:          ~/dotfiles/wallpapers/
+Config Backup:       ./quick-commands.sh backup
+Config Restore:      ./quick-commands.sh install
+
+================================================================================
+🎯 WORKSPACE SPECIALIZATIONS
+================================================================================
+Workspace 1:  General apps / browsers
+Workspace 2:  Development
+Workspace 3:  Communication
+Workspace 4:  Media/Design
+Workspace 5:  🎮 Steam/Gaming
+Workspace 6:  🔐 Security tools
+Workspace 7:  🌐 Network analysis
+Workspace 8:  🖥️  VMs/containers
+Workspace 9:  Misc
+Workspace 10: System monitoring
+
+================================================================================
+💡 PRO TIPS
+================================================================================
+- Use Super + S twice to quickly check system stats
+- Super + Ctrl + W for instant wallpaper theming
+- Gaming? Use Super + G then Super + Alt + P for performance mode
+- Screenshots automatically saved with timestamp
+- Lid close locks screen when external monitor connected
+- Emergency exit: Super + Shift + Ctrl + Q
+
+Generated: 2025-09-21
+Last Updated: Latest hypridle dual-GPU sleep fix applied
