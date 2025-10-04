@@ -4,7 +4,7 @@
     "height": 32,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["cpu", "memory", "temperature", "network", "custom/bluetooth-audio", "battery", "clock"],
+    "modules-right": ["cpu", "memory", "temperature", "network", "custom/bluetooth-audio", "battery", "clock", "custom/power"],
     
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -83,6 +83,13 @@
                 "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
             }
         }
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": "Power Menu",
+        "on-click": "wlogout",
+        "on-click-right": "systemctl poweroff"
     }
 }
 
